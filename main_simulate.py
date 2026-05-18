@@ -107,8 +107,8 @@ def eqm(X, params):
         mnn0 = mnn1.copy()
         M_mL_term = (L1base * dL[0:NN]) / (mnn0 * L0)
         temp_local = M_mL_term.reshape(-1, 2)
-        M_mL_term_ag_l = temp_local[:, 0:1]
-        M_mL_term_na_l = temp_local[:, 1:2]
+        M_mL_term_ag_l = temp_local[:, 0]
+        M_mL_term_na_l = temp_local[:, 1]
         Cnnjj_ag_l = 1 + (eta_ag + (1 - alpha) * beta_ag) * M_mL_term_ag_l / (alpha * beta_ag)
         Cnnjj_na_l = 1 + (eta_na + (1 - alpha) * beta_na) * M_mL_term_na_l / (alpha * beta_na)
         Cnnjj_l = np.column_stack([Cnnjj_ag_l, Cnnjj_na_l]).reshape(-1, 1)
